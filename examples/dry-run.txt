@@ -1,0 +1,29 @@
+Dry run: the feed was read from WordPress.org; nothing was sent to TypeSafe.
+
+12 threads from the tidy-backups-demo support forum (newest topics feed, 1 page), 2 marked resolved
+  https://wordpress.org/support/plugin/tidy-backups-demo/feed/  12 threads
+
+  t0   2026-09-25  0 replies  Fatal error after updating to 2.4.0
+  t1   2026-09-24  0 replies  Backups stop when a page cache plugin is active
+  t2   2026-09-24  0 replies  Please add Dropbox as a storage option
+  t3   2026-09-23  0 replies  Is this plugin still maintained?
+  t4   2026-09-21  2 replies  Scheduled backup did not run last night
+  t5   2026-09-20  0 replies  Where are the backup files stored?
+  t6   2026-09-19  0 replies  Saved my site today, thank you
+  t7   2026-09-18  0 replies  Cheap hosting coupons
+  t8   2026-09-16  1 reply    How do I exclude the uploads folder?
+  t9   2026-09-15  0 replies  Restore worked on the second try
+  t10  2026-09-10  3 replies  resolved  Restore stops at 80 percent
+  t11  2026-09-07  2 replies  resolved  Option to keep only the last five backups
+
+3 requests to jev-latest, about 7,693 input tokens ($0.0003 at $0.042 per million)
+
+Each thread gets three questions. For t0 "Fatal error after updating to 2.4.0", which is `threads[0]` in its request:
+  t0_kind (choice: bug, how-to, feature-request, conflict-with-another-plugin, praise, spam, other)
+    `threads` lists separate topics from the support forum of one WordPress plugin. Each has the `title` and the `first_post` written by the person who opened it. What kind of topic is `threads[0]`?
+  t0_reply (noul)
+    `threads` lists separate topics from the support forum of one WordPress plugin. Each has the `title` and the `first_post` written by the person who opened it. Does `threads[0]` need a reply from the people who make the plugin?
+  t0_solved (noul)
+    `threads` lists separate topics from the support forum of one WordPress plugin. Each has the `title` and the `first_post` written by the person who opened it. Does `threads[0]` say that its problem is solved or its question is answered?
+
+Run with --dry-run --json to see every request body.

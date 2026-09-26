@@ -1,0 +1,38 @@
+{
+  "name": "wporg-forum-triage",
+  "version": "1.0.0",
+  "description": "Sorts a WordPress.org plugin's support threads into bugs, how-to questions, feature requests, conflicts, praise and spam, and lists the ones waiting for the author's reply, using TypeSafe's Jev model.",
+  "type": "module",
+  "bin": {
+    "wporg-forum-triage": "bin/wporg-forum-triage.mjs"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "support-forum",
+    "triage",
+    "cli",
+    "typesafe",
+    "jev"
+  ],
+  "author": "Hamza Ahmad Aslam (https://hamzaahmadaslam.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzaahmadaslam/wporg-forum-triage.git"
+  },
+  "homepage": "https://github.com/hamzaahmadaslam/wporg-forum-triage#readme",
+  "bugs": {
+    "url": "https://github.com/hamzaahmadaslam/wporg-forum-triage/issues"
+  }
+}

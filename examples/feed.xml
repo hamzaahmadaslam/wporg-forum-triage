@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic example: a made-up plugin, made-up threads and made-up user names, written for this repository in the
+     format WordPress.org uses for a plugin's support feed. No real forum content. -->
+	<rss version="2.0"
+		xmlns:content="http://purl.org/rss/1.0/modules/content/"
+		xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:atom="http://www.w3.org/2005/Atom"
+
+			>
+
+	<channel>
+
+		<title>WordPress.org Forums &#187; [Tidy Backups Demo] Support</title>
+		<atom:link href="https://wordpress.org/support/plugin/tidy-backups-demo/feed/" rel="self" type="application/rss+xml" />
+		<link>https://wordpress.org/support/plugin/tidy-backups-demo/feed/</link>
+		<description></description>		<lastBuildDate>Sat, 26 Sep 2026 08:00:00 +0000</lastBuildDate>
+		<generator>https://bbpress.org/?v=2.7.0-alpha-3</generator>
+		<language>en-US</language>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-fatal-error-after-updating-to-2-4-0/</guid>
+					<title><![CDATA[Fatal error after updating to 2.4.0]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-fatal-error-after-updating-to-2-4-0/</link>
+					<pubDate>Fri, 25 Sep 2026 09:14:02 +0000</pubDate>
+					<dc:creator>sample-user-01</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">After updating to 2.4.0 the dashboard shows &#8220;There has been a critical error on this website.&#8221; The debug log says:</p>
+
+
+
+<pre class="wp-block-code"><code>PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /wp-content/plugins/tidy-backups-demo/includes/class-schedule.php:88</code></pre>
+
+
+
+<p class="wp-block-paragraph">Going back to 2.3.2 fixes it. WordPress 6.9, PHP 8.3.</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-backups-stop-when-a-page-cache-plugin-is-active/</guid>
+					<title><![CDATA[Backups stop when a page cache plugin is active]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-backups-stop-when-a-page-cache-plugin-is-active/</link>
+					<pubDate>Thu, 24 Sep 2026 16:40:11 +0000</pubDate>
+					<dc:creator>sample-user-02</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">Every backup stops at the database step while Sample Page Cache is active. When I deactivate Sample Page Cache, the backup finishes. Both plugins are up to date.</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-please-add-dropbox-as-a-storage-option/</guid>
+					<title><![CDATA[Please add Dropbox as a storage option]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-please-add-dropbox-as-a-storage-option/</link>
+					<pubDate>Thu, 24 Sep 2026 07:05:48 +0000</pubDate>
+					<dc:creator>sample-user-03</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">Could you add Dropbox as a place to store backups, next to Google Drive and Amazon S3? Most of the sites I look after already use Dropbox.</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-is-this-plugin-still-maintained/</guid>
+					<title><![CDATA[Is this plugin still maintained?]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-is-this-plugin-still-maintained/</link>
+					<pubDate>Wed, 23 Sep 2026 12:30:00 +0000</pubDate>
+					<dc:creator>sample-user-04</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">The last release was in the spring. Is Tidy Backups still maintained, and is it safe to keep using it on WordPress 6.9?</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-scheduled-backup-did-not-run-last-night/</guid>
+					<title><![CDATA[Scheduled backup did not run last night]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-scheduled-backup-did-not-run-last-night/</link>
+					<pubDate>Mon, 21 Sep 2026 06:22:37 +0000</pubDate>
+					<dc:creator>sample-user-05</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 2						</p>
+						<p class="wp-block-paragraph">The daily backup at 02:00 did not run last night, and there is nothing in the backup log. Clicking &#8220;Back up now&#8221; still works. What I checked:</p>
+
+
+
+<ul class="wp-block-list">
+<li>WP-Cron is enabled</li>
+
+
+
+<li>The schedule still shows 02:00</li>
+</ul>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-where-are-the-backup-files-stored/</guid>
+					<title><![CDATA[Where are the backup files stored?]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-where-are-the-backup-files-stored/</link>
+					<pubDate>Sun, 20 Sep 2026 18:03:19 +0000</pubDate>
+					<dc:creator>sample-user-06</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">I can&#8217;t find the backup archives on the server. Which folder are they in?</p>
+
+
+
+<p class="wp-block-paragraph">Edit: found them under Settings &gt; Storage. Never mind!</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-saved-my-site-today-thank-you/</guid>
+					<title><![CDATA[Saved my site today, thank you]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-saved-my-site-today-thank-you/</link>
+					<pubDate>Sat, 19 Sep 2026 10:47:55 +0000</pubDate>
+					<dc:creator>sample-user-07</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">An update broke my shop this morning, and I restored yesterday&#8217;s backup in two minutes. Thank you for this plugin!</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-cheap-hosting-coupons/</guid>
+					<title><![CDATA[Cheap hosting coupons]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-cheap-hosting-coupons/</link>
+					<pubDate>Fri, 18 Sep 2026 03:11:09 +0000</pubDate>
+					<dc:creator>sample-user-08</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">Best hosting deals of the year, 90% off today only at <a href="https://example.com/deals" rel="nofollow ugc">https://example.com/deals</a>. Use code SAVE90.</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-how-do-i-exclude-the-uploads-folder/</guid>
+					<title><![CDATA[How do I exclude the uploads folder?]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-how-do-i-exclude-the-uploads-folder/</link>
+					<pubDate>Wed, 16 Sep 2026 14:58:30 +0000</pubDate>
+					<dc:creator>sample-user-09</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 1						</p>
+						<p class="wp-block-paragraph">My uploads folder is 12 GB and my host already backs it up.<br />How can I leave it out of the backup?</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-restore-worked-on-the-second-try/</guid>
+					<title><![CDATA[Restore worked on the second try]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-restore-worked-on-the-second-try/</link>
+					<pubDate>Tue, 15 Sep 2026 20:16:44 +0000</pubDate>
+					<dc:creator>sample-user-10</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 0						</p>
+						<p class="wp-block-paragraph">The first restore stopped with a timeout. I ran it again and the site came back fine. Should I worry about the first failure?</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-restore-stops-at-80-percent/</guid>
+					<title><![CDATA[<span class="resolved" aria-label="Resolved" title="Topic is resolved."></span>Restore stops at 80 percent]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-restore-stops-at-80-percent/</link>
+					<pubDate>Thu, 10 Sep 2026 11:09:27 +0000</pubDate>
+					<dc:creator>sample-user-11</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 3						</p>
+						<p class="wp-block-paragraph">Restoring a backup always stops at 80 percent, with no error message. The archive is about 2 GB.</p>
+						]]>
+					</description>
+
+				</item>
+
+				<item>
+					<guid>https://wordpress.org/support/topic/tidy-backups-demo-option-to-keep-only-the-last-five-backups/</guid>
+					<title><![CDATA[<span class="resolved" aria-label="Resolved" title="Topic is resolved."></span>Option to keep only the last five backups]]></title>
+					<link>https://wordpress.org/support/topic/tidy-backups-demo-option-to-keep-only-the-last-five-backups/</link>
+					<pubDate>Mon, 07 Sep 2026 08:45:12 +0000</pubDate>
+					<dc:creator>sample-user-12</dc:creator>
+
+					<description>
+						<![CDATA[
+						<p>
+							Replies: 2						</p>
+						<p class="wp-block-paragraph">Please add a setting that deletes older backups and keeps only the last five.</p>
+						]]>
+					</description>
+
+				</item>
+
+	</channel>
+	</rss>

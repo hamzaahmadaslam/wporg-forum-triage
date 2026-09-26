@@ -1,0 +1,66 @@
+{
+  "note": "Hand-written answers for the synthetic threads in examples/feed.xml, used by the tests and by examples/run.mjs. They were not produced by TypeSafe; they show the report format.",
+  "model": "jev-1.13.0",
+  "answers": {
+    "tidy-backups-demo-fatal-error-after-updating-to-2-4-0": {
+      "kind": { "bug": 0.95, "conflict-with-another-plugin": 0.03, "how-to": 0.02 },
+      "reply": 0.97,
+      "solved": 0.02
+    },
+    "tidy-backups-demo-backups-stop-when-a-page-cache-plugin-is-active": {
+      "kind": { "conflict-with-another-plugin": 0.9, "bug": 0.09, "how-to": 0.01 },
+      "reply": 0.95,
+      "solved": 0.03
+    },
+    "tidy-backups-demo-please-add-dropbox-as-a-storage-option": {
+      "kind": { "feature-request": 0.97, "how-to": 0.02, "other": 0.01 },
+      "reply": 0.88,
+      "solved": 0.02
+    },
+    "tidy-backups-demo-is-this-plugin-still-maintained": {
+      "kind": { "other": 0.5, "how-to": 0.34, "bug": 0.1, "feature-request": 0.06 },
+      "reply": 0.9,
+      "solved": 0.04
+    },
+    "tidy-backups-demo-scheduled-backup-did-not-run-last-night": {
+      "kind": { "bug": 0.92, "how-to": 0.05, "conflict-with-another-plugin": 0.03 },
+      "reply": 0.94,
+      "solved": 0.05
+    },
+    "tidy-backups-demo-where-are-the-backup-files-stored": {
+      "kind": { "how-to": 0.93, "other": 0.05, "bug": 0.02 },
+      "reply": 0.12,
+      "solved": 0.91
+    },
+    "tidy-backups-demo-saved-my-site-today-thank-you": {
+      "kind": { "praise": 0.98, "other": 0.02 },
+      "reply": 0.08,
+      "solved": 0.1
+    },
+    "tidy-backups-demo-cheap-hosting-coupons": {
+      "kind": { "spam": 0.97, "other": 0.03 },
+      "reply": 0.03,
+      "solved": 0.02
+    },
+    "tidy-backups-demo-how-do-i-exclude-the-uploads-folder": {
+      "kind": { "how-to": 0.95, "feature-request": 0.04, "bug": 0.01 },
+      "reply": 0.93,
+      "solved": 0.06
+    },
+    "tidy-backups-demo-restore-worked-on-the-second-try": {
+      "kind": { "bug": 0.86, "how-to": 0.12, "other": 0.02 },
+      "reply": 0.64,
+      "solved": 0.55
+    },
+    "tidy-backups-demo-restore-stops-at-80-percent": {
+      "kind": { "bug": 0.9, "conflict-with-another-plugin": 0.08, "how-to": 0.02 },
+      "reply": 0.9,
+      "solved": 0.1
+    },
+    "tidy-backups-demo-option-to-keep-only-the-last-five-backups": {
+      "kind": { "feature-request": 0.94, "how-to": 0.06 },
+      "reply": 0.85,
+      "solved": 0.08
+    }
+  }
+}
