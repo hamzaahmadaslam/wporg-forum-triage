@@ -16,7 +16,7 @@ Dry run: the feed was read from WordPress.org; nothing was sent to TypeSafe.
   t10  2026-09-10  3 replies  resolved  Restore stops at 80 percent
   t11  2026-09-07  2 replies  resolved  Option to keep only the last five backups
 
-3 requests to jev-latest, about 7,693 input tokens ($0.0003 at $0.042 per million)
+3 requests to jev-latest, about 7,693 input tokens
 
 Each thread gets three questions. For t0 "Fatal error after updating to 2.4.0", which is `threads[0]` in its request:
   t0_kind (choice: bug, how-to, feature-request, conflict-with-another-plugin, praise, spam, other)

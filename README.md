@@ -118,7 +118,7 @@ the tests, not recorded from TypeSafe, and show the report format. Your numbers 
 
 ```text
 wporg-forum-triage: 12 threads from the tidy-backups-demo support forum (newest topics feed, 1 page)
-Model jev-1.13.0, 3 requests, 7,693 input tokens (about $0.0003), threshold 0.8
+Model jev-1.13.0, 3 requests, 7,693 input tokens, threshold 0.8
 
 Needs your reply: 4 unanswered (1 bug), 2 already with replies
 Not resolved: bug 2, conflict-with-another-plugin 1, how-to 2, feature-request 1, praise 1, spam 1, review 2
@@ -218,21 +218,20 @@ telemetry, updates or anything else.
   kinds as suggestions, read the review list yourself, and check a sample against your own forum before you rely on
   a threshold.
 
-## Cost
+## Token use
 
-TypeSafe charges $0.042 per million input tokens for jev-1.13; output tokens are free. The three questions add about
-590 tokens per thread, so for short posts most of the cost is the questions. By the tool's own estimate (four
-characters per token):
+The three questions add about 590 input tokens per thread, so for short posts most of the tokens are the questions.
+By the tool's own estimate (four characters per token):
 
-| Run                                                                  | Requests | Input tokens      | Cost          |
-| -------------------------------------------------------------------- | -------- | ----------------- | ------------- |
-| The example: 12 threads                                              | 3        | about 7,700       | under $0.001  |
-| A real plugin's newest topics feed on 2026-09-26: 30 threads         | 6        | about 22,200      | about $0.001  |
-| One feed of 30 threads with first posts of about 1,000 characters    | 6        | about 25,700      | about $0.001  |
-| The same feed of 30 threads with every first post at the 4,000 limit | 6        | about 48,200      | about $0.002  |
-| The 1,000-character feed read once a day for a year                  | 2,190    | about 9.4 million | about $0.39   |
+| Run                                                                  | Requests | Input tokens      |
+| -------------------------------------------------------------------- | -------- | ----------------- |
+| The example: 12 threads                                              | 3        | about 7,700       |
+| A real plugin's newest topics feed on 2026-09-26: 30 threads         | 6        | about 22,200      |
+| One feed of 30 threads with first posts of about 1,000 characters    | 6        | about 25,700      |
+| The same feed of 30 threads with every first post at the 4,000 limit | 6        | about 48,200      |
+| The 1,000-character feed read once a day for a year                  | 2,190    | about 9.4 million |
 
-`--dry-run` prints the estimate for your own forum before you spend anything.
+`--dry-run` prints the estimate for your own forum without sending anything to TypeSafe.
 
 ## License
 

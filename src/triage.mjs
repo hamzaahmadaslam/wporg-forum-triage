@@ -12,8 +12,6 @@ export const STATE_BUDGET = 16_000;
 export const TITLE_CHARS = 300;
 export const POST_HEAD_CHARS = 3_000;
 export const POST_TAIL_CHARS = 1_000;
-/** US dollars per million input tokens for jev-1.13. Output tokens are free. */
-export const PRICE_PER_MILLION = 0.042;
 const CONCURRENCY = 4;
 
 /** A rough token count: four characters per token. */
@@ -109,11 +107,11 @@ export function planRequests(threads, { batch = DEFAULT_BATCH, model = DEFAULT_M
   return { threads, requests };
 }
 
-/** Estimated input tokens and cost of a plan, for --dry-run. */
+/** Estimated input tokens of a plan, per request and in total, for --dry-run. */
 export function estimatePlan(plan) {
   const perRequest = plan.requests.map((request) => estimateTokens(JSON.stringify(request.body)));
   const tokens = perRequest.reduce((sum, n) => sum + n, 0);
-  return { perRequest, tokens, cost: (tokens * PRICE_PER_MILLION) / 1e6 };
+  return { perRequest, tokens };
 }
 
 const isProbability = (value) => typeof value === "number" && value >= 0 && value <= 1;

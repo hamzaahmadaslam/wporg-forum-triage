@@ -1,6 +1,6 @@
 // Formats results for people (the report, the dry run) and for programs (JSON). Every word printed comes from the
 // forum feed or from the fixed text in this file; Jev returns only probabilities.
-import { estimatePlan, KIND_ORDER, KINDS, PRICE_PER_MILLION } from "./triage.mjs";
+import { estimatePlan, KIND_ORDER, KINDS } from "./triage.mjs";
 
 /** The order threads are listed in within a group: the ones waiting for you first. */
 const STATUS_ORDER = ["unanswered", "needs_reply", "has_replies", "unclear", "looks_resolved", "no_reply_needed", "resolved"];
@@ -17,15 +17,7 @@ const LIST_LIMIT = 30;
 const count = (n) => n.toLocaleString("en-US");
 const plural = (n, word, many = `${word}s`) => `${count(n)} ${n === 1 ? word : many}`;
 const p2 = (value) => value.toFixed(2);
-const round6 = (value) => Math.round(value * 1e6) / 1e6;
 const day = (iso) => iso?.slice(0, 10) ?? null;
-
-/** Dollars, with enough decimals to show a cost that is usually a fraction of a cent. */
-export function money(cost) {
-  if (cost === 0) return "$0";
-  if (cost < 0.0001) return "under $0.0001";
-  return cost < 0.01 ? `$${cost.toFixed(4)}` : `$${cost.toFixed(2)}`;
-}
 
 /** Which feed was read and how many of its pages, for the first line. */
 function source(meta) {
@@ -107,11 +99,9 @@ function pagesNote(meta) {
 /** The human-readable report: counts, then the threads that are not resolved, grouped by kind, with probabilities. */
 export function formatReport(result, meta) {
   const { summary, usage, threshold } = result;
-  const cost = (usage.input_tokens * PRICE_PER_MILLION) / 1e6;
-  const price = cost === 0 || cost < 0.0001 ? money(cost) : `about ${money(cost)}`;
   const lines = [
     `wporg-forum-triage: ${plural(summary.threads, "thread")} from the ${meta.slug} support forum (${source(meta)})`,
-    `Model ${result.model}, ${plural(usage.requests, "request")}, ${count(usage.input_tokens)} input tokens (${price}), threshold ${threshold}`,
+    `Model ${result.model}, ${plural(usage.requests, "request")}, ${count(usage.input_tokens)} input tokens, threshold ${threshold}`,
     "",
   ];
   if (!summary.threads) {
@@ -159,7 +149,6 @@ export function formatReport(result, meta) {
 
 /** The report as JSON: every thread in feed order, its kind and status, and the raw probabilities. */
 export function toJson(result, meta) {
-  const cost = (result.usage.input_tokens * PRICE_PER_MILLION) / 1e6;
   return {
     tool: "wporg-forum-triage",
     version: meta.version,
@@ -171,7 +160,7 @@ export function toJson(result, meta) {
     batch: meta.batch,
     model: result.model,
     summary: result.summary,
-    usage: { ...result.usage, estimated_cost_usd: round6(cost) },
+    usage: result.usage,
     threads: result.entries.map(({ thread, answer, kind, status, review, reasons }) => ({
       title: thread.title,
       url: thread.url,
@@ -214,8 +203,7 @@ export function formatDryRun(plan, meta) {
   lines.push(...pagesNote(meta));
   lines.push(
     "",
-    `${plural(plan.requests.length, "request")} to ${meta.model}, about ${count(estimate.tokens)} input tokens ` +
-      `(${money(estimate.cost)} at $${PRICE_PER_MILLION} per million)`,
+    `${plural(plan.requests.length, "request")} to ${meta.model}, about ${count(estimate.tokens)} input tokens`,
   );
   const request = plan.requests[0];
   if (request) {
@@ -252,7 +240,6 @@ export function dryRunJson(plan, meta) {
       requests: plan.requests.length,
     },
     estimated_input_tokens: estimate.tokens,
-    estimated_cost_usd: round6(estimate.cost),
     requests: plan.requests.map((request, i) => ({
       threads: request.targets.map((target) => plan.threads[target.index].url ?? plan.threads[target.index].title),
       estimated_tokens: estimate.perRequest[i],

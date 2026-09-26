@@ -1,5 +1,5 @@
 wporg-forum-triage: 12 threads from the tidy-backups-demo support forum (newest topics feed, 1 page)
-Model jev-1.13.0, 3 requests, 7,693 input tokens (about $0.0003), threshold 0.8
+Model jev-1.13.0, 3 requests, 7,693 input tokens, threshold 0.8
 
 Needs your reply: 4 unanswered (1 bug), 2 already with replies
 Not resolved: bug 2, conflict-with-another-plugin 1, how-to 2, feature-request 1, praise 1, spam 1, review 2

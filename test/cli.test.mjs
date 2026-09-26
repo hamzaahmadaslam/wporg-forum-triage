@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import test from "node:test";
 import { exampleFetch, SLUG } from "../examples/run.mjs";
 import { main, USAGE } from "../src/cli.mjs";
@@ -62,6 +62,30 @@ test("the example reproduces report.txt, report.json and dry-run.txt exactly, co
   for (const output of [report, json, dry]) assert.ok(!(output.stdout + output.stderr).includes(KEY), "the key is never printed");
 });
 
+test("the output gives token counts only: no price, no dollar amount, no cost field", async () => {
+  const env = { TYPESAFE_API_KEY: KEY };
+  const report = await run([SLUG], { env, fetchImpl: exampleFetch().fetchImpl });
+  const json = await run([SLUG, "--json"], { env, fetchImpl: exampleFetch().fetchImpl });
+  const dry = await run([SLUG, "--dry-run"], { fetchImpl: exampleFetch().fetchImpl });
+  const dryJson = await run([SLUG, "--dry-run", "--json"], { fetchImpl: exampleFetch().fetchImpl });
+  assert.match(report.stdout, /^Model jev-1\.13\.0, 3 requests, 7,693 input tokens, threshold 0\.8$/m);
+  assert.match(dry.stdout, /^3 requests to jev-latest, about 7,693 input tokens$/m);
+  for (const { stdout } of [report, dry]) assert.doesNotMatch(stdout, /\$\s?\d|\b(cost|price|usd)\b|per million/i);
+  const keys = (value) => (value && typeof value === "object" ? Object.entries(value).flatMap(([key, inner]) => [key, ...keys(inner)]) : []);
+  for (const { stdout } of [json, dryJson]) {
+    assert.doesNotMatch(stdout, /\$\s?\d/);
+    for (const key of keys(JSON.parse(stdout))) assert.doesNotMatch(key, /cost|price|usd/i);
+  }
+  assert.deepEqual(Object.keys(JSON.parse(json.stdout).usage), ["requests", "input_tokens", "output_tokens"]);
+
+  const readme = text("../README.md");
+  assert.match(readme, /^## Token use$/m);
+  assert.doesNotMatch(readme, /\$\s?\d|per million|^## Cost$/im);
+  for (const name of readdirSync(new URL("../src/", import.meta.url))) {
+    assert.doesNotMatch(text(`../src/${name}`), /\bprice|per million|\busd\b|\bmoney\b/i, `no price constant or money helper in src/${name}`);
+  }
+});
+
 test("--dry-run reads the feed, needs no key and sends nothing to TypeSafe", async () => {
   const example = exampleFetch();
   const dry = await run([SLUG, "--dry-run", "--json"], { env: { TYPESAFE_MODEL: "jev-1.13.0" }, fetchImpl: example.fetchImpl });
@@ -90,7 +114,7 @@ test("exit code 0 and a short report when nothing waits for a reply", async () =
   const { code, stdout } = await run(["sample-plugin", "--threshold", "0.9"], { env: { TYPESAFE_API_KEY: KEY }, fetchImpl });
   assert.equal(code, 0);
   assert.match(stdout, /^wporg-forum-triage: 3 threads from the sample-plugin support forum \(newest topics feed, 1 page\)\n/);
-  assert.match(stdout, /Model jev-1\.13\.0, 1 request, 1,000 input tokens \(under \$0\.0001\), threshold 0\.9/);
+  assert.match(stdout, /Model jev-1\.13\.0, 1 request, 1,000 input tokens, threshold 0\.9\n/);
   assert.match(stdout, /Needs your reply: 0 unanswered, 0 already with replies\nNot resolved: praise 3\n/);
   assert.doesNotMatch(stdout, /^unanswered:/m);
 });
